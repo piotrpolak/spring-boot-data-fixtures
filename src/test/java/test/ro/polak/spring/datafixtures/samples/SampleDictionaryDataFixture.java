@@ -1,10 +1,10 @@
 package test.ro.polak.spring.datafixtures.samples;
 
-import ro.polak.spring.datafixtures.DataFixtureType;
+import static ro.polak.spring.datafixtures.DataFixtureType.DICTIONARY;
 
 public class SampleDictionaryDataFixture extends GenericCountableDataFixture {
 
   public SampleDictionaryDataFixture() {
-    super(DataFixtureType.DICTIONARY);
+    super(DICTIONARY);
   }
 }

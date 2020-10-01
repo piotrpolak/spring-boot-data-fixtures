@@ -3,7 +3,7 @@ package test.ro.polak.spring.datafixtures.samples;
 import ro.polak.spring.datafixtures.DataFixture;
 import ro.polak.spring.datafixtures.DataFixtureType;
 
-public class GenericCountableDataFixture implements DataFixture, ApplyCountable {
+public class GenericCountableDataFixture implements DataFixture, CallCountable {
 
   private int callCount = 0;
 

@@ -7,14 +7,7 @@ A generic mechanism to load data fixtures upon application startup.
 
 ## Usage
 
-Data fixtures are defined as beans implementing the `DataFixture` interface and must define a type:
-
-| Data fixture type | Description                                                                                             |
-|-------------------|---------------------------------------------------------------------------------------------------------|
-| DICTIONARY        | Initial data such as mandatory dictionaries, initial accounts etc.                                      |
-| TEST              | Data used in integration tests.                                                                         |
-| DEMO              | Data used for demonstration and manual testing purposes. Should describe representative demo scenarios. |
-| PERFORMANCE       | Large performance data sets. Usually generated using loops.                                             |
+Data fixtures are defined as beans implementing the `DataFixture` interface. Example:
 
 ```java
 @Component
@@ -24,16 +17,28 @@ public class InitialDataFixture implements DataFixture {
 
     // ...
 
+    /**
+     * Defines the fixture type. Fixtures are loaded in the order defined by DataFixtureType enum
+     * ordinals.
+     */
     @Override
     public DataFixtureType getType() {
       return DataFixtureType.DICTIONARY;
     }
 
+    /**
+     * Tells whether the fixture is eligible for application. In most cases a fixture is executed upon
+     * the fist application startup only.
+     */
     @Override
     public boolean shouldBeApplied() {
       return someRepository.isEmpty();
     }
 
+    /**
+     * The actual application of the fixture. Assuming data fixtures are registered as beans, this can
+     * contain a call to other services and/or repositories.
+     */
     @Override
     public void apply() {
       someRepository.save(new SomeEntity());
@@ -41,7 +46,22 @@ public class InitialDataFixture implements DataFixture {
 }
 ```
 
-Application can define many fixtures of the same type - defining fixtures per domain is a common practice.
+### Fixture types
+
+A fixture must define one of the following types:
+
+| Data fixture type | Description                                                                                             |
+|-------------------|---------------------------------------------------------------------------------------------------------|
+| DICTIONARY        | Initial data such as mandatory dictionaries, initial accounts etc.                                      |
+| TEST              | Data used in integration tests.                                                                         |
+| DEMO              | Data used for demonstration and manual testing purposes. Should describe representative demo scenarios. |
+| PERFORMANCE       | Large performance data sets. Usually generated using loops.                                             |
+
+### Fixture application order
+
+Application can define many fixtures of the same type - defining fixtures per domain is a common practice and a great
+way to keep the code decoupled.
+
 The fixtures are loaded in the following order `DICTIONARY` -> `TEST` -> `DEMO` -> `PERFORMANCE`.
 If there are more fixtures of the same type, their order can be manually arranged using `@Order` annotation.
 
@@ -85,10 +105,10 @@ public class DemoProductsDataFixture implements DataFixture {
 
 ## Configuration options
 
-| Property name                           | Description                                                  | Default | Allowed values                                                       |
-|-----------------------------------------|--------------------------------------------------------------|---------|----------------------------------------------------------------------|
-| `ro.polak.spring.data-fixtures.enabled` | Turns on and off the data features mechanism                 | false   | true, false                                                          |
-| `ro.polak.spring.data-fixtures.types`   | Specifies the types fixture types to be loaded automatically | Empty   | DICTIONARY, TEST, DEMO, PERFORMANCE and any combination of the above |
+| Property name                           | Description                                                  | Default    | Allowed values                                                       |
+|-----------------------------------------|--------------------------------------------------------------|------------|----------------------------------------------------------------------|
+| `ro.polak.spring.data-fixtures.enabled` | Turns on and off the data features mechanism                 | true       | true, false                                                          |
+| `ro.polak.spring.data-fixtures.types`   | Specifies the types fixture types to be loaded automatically | DICTIONARY | DICTIONARY, TEST, DEMO, PERFORMANCE and any combination of the above |
 
 ## Installation
 

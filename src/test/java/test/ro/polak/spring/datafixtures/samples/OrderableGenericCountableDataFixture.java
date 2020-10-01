@@ -9,7 +9,7 @@ public class OrderableGenericCountableDataFixture extends GenericCountableDataFi
   private int order = -1;
 
   public OrderableGenericCountableDataFixture(
-      DataFixtureType type, AtomicInteger orderSharedReference) {
+      final DataFixtureType type, final AtomicInteger orderSharedReference) {
     super(type);
     this.orderSharedReference = orderSharedReference;
   }

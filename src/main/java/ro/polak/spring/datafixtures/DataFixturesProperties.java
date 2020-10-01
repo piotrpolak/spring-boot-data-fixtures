@@ -1,5 +1,8 @@
 package ro.polak.spring.datafixtures;
 
+import static ro.polak.spring.datafixtures.DataFixtureType.DICTIONARY;
+
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -13,7 +16,7 @@ public class DataFixturesProperties {
 
   private final boolean enabled = true;
 
-  private final Set<DataFixtureType> types = new HashSet<>();
+  private final Set<DataFixtureType> types = new HashSet<>(Arrays.asList(DICTIONARY));
 
   public boolean isEnabled() {
     return enabled;

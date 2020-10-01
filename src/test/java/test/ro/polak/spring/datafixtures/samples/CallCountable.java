@@ -1,6 +1,6 @@
 package test.ro.polak.spring.datafixtures.samples;
 
-public interface ApplyCountable {
+public interface CallCountable {
 
   int getCallCount();
 }
