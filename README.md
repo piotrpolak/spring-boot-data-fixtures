@@ -5,6 +5,85 @@
 
 A generic mechanism to load data fixtures upon application startup.
 
+## Usage
+
+Data fixtures are defined as beans implementing the `DataFixture` interface and must define a type:
+
+| Data fixture type | Description                                                                                             |
+|-------------------|---------------------------------------------------------------------------------------------------------|
+| DICTIONARY        | Initial data such as mandatory dictionaries, initial accounts etc.                                      |
+| TEST              | Data used in integration tests.                                                                         |
+| DEMO              | Data used for demonstration and manual testing purposes. Should describe representative demo scenarios. |
+| PERFORMANCE       | Large performance data sets. Usually generated using loops.                                             |
+
+```java
+@Component
+public class InitialDataFixture implements DataFixture {
+
+    private final SomeRepository someRepository;
+
+    // ...
+
+    @Override
+    public DataFixtureType getType() {
+      return DataFixtureType.DICTIONARY;
+    }
+
+    @Override
+    public boolean shouldBeApplied() {
+      return someRepository.isEmpty();
+    }
+
+    @Override
+    public void apply() {
+      someRepository.save(new SomeEntity());
+    }
+}
+```
+
+Application can define many fixtures of the same type - defining fixtures per domain is a common practice.
+The fixtures are loaded in the following order `DICTIONARY` -> `TEST` -> `DEMO` -> `PERFORMANCE`.
+If there are more fixtures of the same type, their order can be manually arranged using `@Order` annotation.
+
+Fixtures from the example below will be applied in the following order:
+ `InitialCountriesDataFixture` -> `InitialCountriesDataFixture` -> `DemoProductsDataFixture`
+
+```java
+@Component
+@Order(Ordered.HIGHEST_PRECEDENCE)
+public class InitialCountriesDataFixture implements DataFixture {
+
+    @Override
+    public DataFixtureType getType() {
+      return DataFixtureType.DICTIONARY;
+    }
+    // ...
+}
+
+@Component
+@Order(Ordered.LOWEST_PRECEDENCE)
+public class InitialCountriesDataFixture implements DataFixture {
+
+    @Override
+    public DataFixtureType getType() {
+      return DataFixtureType.DICTIONARY;
+    }
+    // ...
+}
+
+@Component
+@Order(Ordered.HIGHEST_PRECEDENCE) // Doesn't really matter if there is a single fixture of the demo type
+public class DemoProductsDataFixture implements DataFixture {
+
+    @Override
+    public DataFixtureType getType() {
+      return DataFixtureType.DEMO;
+    }
+    // ...
+}
+```
+
+
 ## Configuration options
 
 | Property name                         | Description                                                  | Default | Allowed values                                                       |
