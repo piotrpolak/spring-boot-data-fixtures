@@ -3,7 +3,7 @@ package ro.polak.spring.datafixtures;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 
-public class DataFixtureApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
+class DataFixtureApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
 
   private final DataFixtureLoaderService dataFixtureLoaderService;
   private final DataFixturesProperties dataFixturesProperties;
