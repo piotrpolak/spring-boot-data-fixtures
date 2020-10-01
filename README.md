@@ -1,4 +1,6 @@
 # Spring Boot Data Fixtures library
+[![Build Status](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures.svg?branch=master)](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures)
+
 
 A generic mechanism to load data fixtures upon application startup.
 
