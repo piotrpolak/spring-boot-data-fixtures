@@ -83,7 +83,6 @@ public class DemoProductsDataFixture implements DataFixture {
 }
 ```
 
-
 ## Configuration options
 
 | Property name                         | Description                                                  | Default | Allowed values                                                       |

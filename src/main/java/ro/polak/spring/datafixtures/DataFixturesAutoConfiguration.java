@@ -1,13 +1,11 @@
-package ro.polak.spring;
+package ro.polak.spring.datafixtures;
 
 import java.util.List;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableAutoConfiguration
 @EnableConfigurationProperties(DataFixturesProperties.class)
 public class DataFixturesAutoConfiguration {
 

@@ -1,4 +1,4 @@
-package test.ro.polak.spring.datafixtures;
+package ro.polak.spring.datafixtures;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

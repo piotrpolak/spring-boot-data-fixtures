@@ -1,4 +1,4 @@
-package ro.polak.spring;
+package ro.polak.spring.datafixtures;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ro.polak.spring;
+package ro.polak.spring.datafixtures;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
