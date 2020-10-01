@@ -38,7 +38,7 @@ public class InitialDataFixture implements DataFixture {
 
     /**
      * The actual application of the fixture. Assuming data fixtures are registered as beans,
-     *  this can contain a call to other services and/or repositories.
+     * this can contain a call to other services and/or repositories.
      */
     @Override
     public void apply() {
@@ -113,7 +113,7 @@ public class DemoProductsDataFixture implements DataFixture {
 
 ## Installation
 
-Maven
+### Maven
 
 ```xml
 <dependency>
@@ -121,6 +121,12 @@ Maven
     <artifactId>spring-boot-data-fixtures</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 </dependency>
+```
+
+### Gradle
+
+```gradle
+implementation 'ro.polak:spring-boot-data-fixtures:0.0.1-SNAPSHOT'
 ```
 
 ## License

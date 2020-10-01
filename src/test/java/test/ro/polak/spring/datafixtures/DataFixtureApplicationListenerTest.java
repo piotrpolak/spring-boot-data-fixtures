@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import ro.polak.spring.datafixtures.DataFixture;
 import ro.polak.spring.datafixtures.DataFixturesAutoConfiguration;
+import ro.polak.spring.datafixtures.DataFixturesProperties;
 import test.ro.polak.spring.datafixtures.samples.SampleDemoDisabledDataFixture;
 import test.ro.polak.spring.datafixtures.samples.SampleDictionaryDataFixture;
 import test.ro.polak.spring.datafixtures.samples.SamplePerformanceDataFixture;
@@ -21,6 +22,7 @@ class DataFixtureApplicationListenerTest extends BaseTest {
   @Autowired SampleDictionaryDataFixture sampleDictionaryDataFixture;
   @Autowired SamplePerformanceDataFixture samplePerformanceDataFixture;
   @Autowired SampleDemoDisabledDataFixture sampleDemoDisabledDataFixture;
+  @Autowired DataFixturesProperties dataFixturesProperties;
 
   @Autowired(required = false)
   DataFixturesAutoConfiguration dataFixturesAutoConfiguration;
@@ -28,6 +30,8 @@ class DataFixtureApplicationListenerTest extends BaseTest {
   @Test
   void should_enable_autoconfiguration() {
     assertThat(dataFixturesAutoConfiguration).as("AutoConfiguration working").isNotNull();
+    assertThat(dataFixturesProperties).as("AutoConfiguration working - properties").isNotNull();
+    assertThat(dataFixturesProperties.isEnabled()).isTrue();
   }
 
   @Test
