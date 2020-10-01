@@ -17,9 +17,6 @@ class DataFixtureApplicationListener implements ApplicationListener<ContextRefre
 
   @Override
   public void onApplicationEvent(final ContextRefreshedEvent contextStartedEvent) {
-    dataFixturesProperties.getTypes().stream()
-        .distinct()
-        .sorted()
-        .forEach(t -> dataFixtureLoaderService.applyByType(t));
+    dataFixtureLoaderService.applyByTypesMatching(dataFixturesProperties.getTypes());
   }
 }

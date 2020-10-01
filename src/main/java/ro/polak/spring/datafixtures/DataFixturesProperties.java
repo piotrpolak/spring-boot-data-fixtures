@@ -1,7 +1,7 @@
 package ro.polak.spring.datafixtures;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.validation.annotation.Validated;
@@ -13,13 +13,13 @@ public class DataFixturesProperties {
 
   private final boolean enabled = true;
 
-  private final List<DataFixtureType> types = new ArrayList();
+  private final Set<DataFixtureType> types = new HashSet<>();
 
   public boolean isEnabled() {
     return enabled;
   }
 
-  public List<DataFixtureType> getTypes() {
+  public Set<DataFixtureType> getTypes() {
     return types;
   }
 }
