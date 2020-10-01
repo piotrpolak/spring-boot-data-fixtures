@@ -116,6 +116,15 @@ public class DemoProductsDataFixture implements DataFixture {
 ### Maven
 
 ```xml
+<repositories>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+</repositories>
+```
+
+```xml
 <dependency>
     <groupId>ro.polak</groupId>
     <artifactId>spring-boot-data-fixtures</artifactId>
@@ -125,7 +134,15 @@ public class DemoProductsDataFixture implements DataFixture {
 
 ### Gradle
 
-```gradle
+```groovy
+repositories {
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+```
+
+```groovy
 implementation 'ro.polak:spring-boot-data-fixtures:0.0.1-SNAPSHOT'
 ```
 
