@@ -9,10 +9,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.validation.annotation.Validated;
 
-@ConfigurationProperties(prefix = "ro.polak.spring.data-fixtures")
+@ConfigurationProperties(prefix = DataFixturesProperties.PREFIX)
 @ConstructorBinding
 @Validated
 public class DataFixturesProperties {
+
+  static final String PREFIX = "ro.polak.spring.data-fixtures";
+  static final String ENABLED = "ro.polak.spring.data-fixtures.enabled";
 
   private final boolean enabled = true;
 

@@ -13,7 +13,11 @@ import test.ro.polak.spring.datafixtures.samples.GenericCountableDataFixture;
 import test.ro.polak.spring.datafixtures.samples.OrderableGenericCountableDataFixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ro.polak.spring.datafixtures.DataFixtureType.*;
+import static ro.polak.spring.datafixtures.DataFixtureType.DEMO;
+import static ro.polak.spring.datafixtures.DataFixtureType.DICTIONARY;
+import static ro.polak.spring.datafixtures.DataFixtureType.PERFORMANCE;
+import static ro.polak.spring.datafixtures.DataFixtureType.TEST;
+import static ro.polak.spring.datafixtures.DataFixtureType.values;
 
 class DataFixtureLoaderServiceTest {
 

@@ -8,13 +8,11 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import ro.polak.spring.datafixtures.DataFixture;
 import ro.polak.spring.datafixtures.DataFixturesAutoConfiguration;
-import test.ro.polak.spring.datafixtures.samples.GenericCountableDataFixture;
 import test.ro.polak.spring.datafixtures.samples.SampleDemoDisabledDataFixture;
 import test.ro.polak.spring.datafixtures.samples.SampleDictionaryDataFixture;
 import test.ro.polak.spring.datafixtures.samples.SamplePerformanceDataFixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ro.polak.spring.datafixtures.DataFixtureType.DEMO;
 
 @ActiveProfiles("dictionayandpeformance")
 @Import(DataFixtureApplicationListenerTest.AdditionalFixturesConfiguration.class)

@@ -1,11 +1,15 @@
 package ro.polak.spring.datafixtures;
 
+import static ro.polak.spring.datafixtures.DataFixturesProperties.ENABLED;
+
 import java.util.List;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ConditionalOnProperty(name = ENABLED, havingValue = "true", matchIfMissing = true)
 @EnableConfigurationProperties(DataFixturesProperties.class)
 public class DataFixturesAutoConfiguration {
 
