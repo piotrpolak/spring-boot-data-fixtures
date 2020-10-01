@@ -1,9 +1,10 @@
-# Spring Boot Data Fixtures library
+# Spring Boot Data Fixtures starter
 [![Build Status](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures.svg?branch=master)](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures)
 [![codecov](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/branch/master/graph/badge.svg?token=MC4ZZAQCTJ)](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/)
 
-
-A generic mechanism to load data fixtures upon application startup.
+A generic mechanism to load data fixtures upon application startup. The starter benefits from Spring Boot
+[Auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-auto-configuration) feature
+and it is automatically enabled once it is on the classpath.
 
 ## Usage
 
@@ -13,7 +14,7 @@ Data fixtures are defined as beans implementing the `DataFixture` interface. Exa
 @Component
 public class InitialDataFixture implements DataFixture {
 
-    private final SomeRepository someRepository;
+    private final LanguageRepository languageRepository;
 
     // ...
 
@@ -27,21 +28,21 @@ public class InitialDataFixture implements DataFixture {
     }
 
     /**
-     * Tells whether the fixture is eligible for application. In most cases a fixture is executed upon
-     * the fist application startup only.
+     * Tells whether the fixture is eligible for application. In most cases a fixture is executed
+     * upon the fist application startup only.
      */
     @Override
     public boolean shouldBeApplied() {
-      return someRepository.isEmpty();
+      return languageRepository.isEmpty();
     }
 
     /**
-     * The actual application of the fixture. Assuming data fixtures are registered as beans, this can
-     * contain a call to other services and/or repositories.
+     * The actual application of the fixture. Assuming data fixtures are registered as beans,
+     *  this can contain a call to other services and/or repositories.
      */
     @Override
     public void apply() {
-      someRepository.save(new SomeEntity());
+      languageRepository.saveAll(Arrays.asList(new Language("en-US"), new Language("pl-PL")));
     }
 }
 ```
@@ -59,7 +60,7 @@ A fixture must define one of the following types:
 
 ### Fixture application order
 
-Application can define many fixtures of the same type - defining fixtures per domain is a common practice and a great
+Application can define many fixtures of the same type - defining fixtures per domain is a common practice, and a great
 way to keep the code decoupled.
 
 The fixtures are loaded in the following order `DICTIONARY` -> `TEST` -> `DEMO` -> `PERFORMANCE`.
@@ -121,9 +122,6 @@ Maven
     <version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
-
-## How it works
-- https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-auto-configuration
 
 ## License
 
