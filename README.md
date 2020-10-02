@@ -148,8 +148,10 @@ In a typical scenario
 - production environment applies `DICTIONARY` fixtures only
 - integration tests environment applies `DICTIONARY` and `TEST` fixtures or just `DICTIONARY`
   (under the assumption that each test populates and cleans up the database)
+    - consider keeping the `TEST` data fixtures in a test dependency/test source set
 - test/demo environment applies `DICTIONARY` and `DEMO` fixtures
 - performance test environment applies `DICTIONARY` and `PERFORMANCE` fixtures
+    - consider keeping the `PERFORMANCE` data fixtures in a test dependency/test source set
 
 ## Installation
 
