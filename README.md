@@ -2,13 +2,16 @@
 [![Build Status](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures.svg?branch=master)](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures)
 [![codecov](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/branch/master/graph/badge.svg?token=MC4ZZAQCTJ)](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/)
 
-A generic mechanism to load data fixtures upon application startup. The starter benefits from Spring Boot
+Loads initial data upon application startup. The starter benefits from Spring Boot
 [Auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-auto-configuration) feature
-and it is automatically enabled once it is on the classpath.
+and it is automatically enabled once it added to classpath.
 
 ## Usage
 
-Data fixtures are defined as beans implementing the [`DataFixture`](../../tree/master/src/main/java/ro/polak/spring/datafixtures/DataFixture.java) interface. Example:
+Data fixtures are defined as beans implementing the [`DataFixture`](../../tree/master/src/main/java/ro/polak/spring/datafixtures/DataFixture.java)
+interface. They can generate and load data using services, repositories or just execute plain SQL.
+
+Example of an initial data fixture loading data using Spring Data repository:
 
 ```java
 @Component
@@ -47,9 +50,37 @@ public class InitialDataFixture implements DataFixture {
 }
 ```
 
+The old-school way using plain SQL - not recommended but might be useful when there are already some demo data stored as
+SQL migrations:
+
+```java
+@Component
+public class PrimitiveSQLInitialDataFixture implements DataFixture {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    // ...
+
+    /**
+     * The actual application of the fixture. Assuming that data fixtures are registered as beans,
+     * this can contain a call to other services and/or repositories.
+     */
+    @Override
+    public void apply() {
+      try {
+          ClassPathResource resource = new ClassPathResource("countries.sql").getInputStream();
+          String rawSql = StreamUtils.copyToString(resource, Charset.defaultCharset());
+          jdbcTemplate.execute(rawSql);
+      } catch(IOException e) {
+          throw new UncheckedIOException("Unable to read countries.sql", e);
+      }
+    }
+}
+```
+
 ### Fixture types
 
-A fixture must define one of the following types:
+A fixture must belong to one of the following types:
 
 | Data fixture type | Description                                                                                             |
 |-------------------|---------------------------------------------------------------------------------------------------------|
@@ -64,7 +95,8 @@ Application can define many fixtures of the same type - defining fixtures per do
 way to keep the code decoupled.
 
 The fixtures are loaded in the following order `DICTIONARY` -> `TEST` -> `DEMO` -> `PERFORMANCE`.
-If there are more fixtures of the same type, their order can be manually arranged using the [`@Order`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html)
+In case when there are more fixtures of the same type, their order can be manually arranged using the
+[`@Order`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html)
 annotation.
 
 Fixtures from the example below will be applied in the following order:
@@ -107,10 +139,17 @@ public class DemoProductsDataFixture implements DataFixture {
 
 ## Configuration options
 
-| Property name                           | Description                                                  | Default    | Allowed values                                                       |
-|-----------------------------------------|--------------------------------------------------------------|------------|----------------------------------------------------------------------|
-| `ro.polak.spring.data-fixtures.enabled` | Turns on and off the data features mechanism                 | true       | true, false                                                          |
-| `ro.polak.spring.data-fixtures.types`   | Specifies the types fixture types to be loaded automatically | DICTIONARY | DICTIONARY, TEST, DEMO, PERFORMANCE and any combination of the above |
+| Property name                           | Description                                                  | Default      |
+|-----------------------------------------|--------------------------------------------------------------|--------------|
+| `ro.polak.spring.data-fixtures.enabled` | Turns on and off the data features mechanism                 | true         |
+| `ro.polak.spring.data-fixtures.types`   | Specifies the types fixture types to be loaded automatically | `DICTIONARY` |
+
+In a typical scenario
+- production environment applies `DICTIONARY` fixtures only
+- integration tests environment applies `DICTIONARY` and `TEST` fixtures or just `DICTIONARY`
+  (under the assumption that each test populates and cleans up the database)
+- test/demo environment applies `DICTIONARY` and `DEMO` fixtures
+- performance test environment applies `DICTIONARY` and `PERFORMANCE` fixtures
 
 ## Installation
 
