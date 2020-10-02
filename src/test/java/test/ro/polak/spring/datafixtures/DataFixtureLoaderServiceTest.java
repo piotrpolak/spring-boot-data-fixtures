@@ -8,16 +8,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
 import ro.polak.spring.datafixtures.DataFixture;
 import ro.polak.spring.datafixtures.DataFixtureLoaderService;
-import ro.polak.spring.datafixtures.DataFixtureType;
+import ro.polak.spring.datafixtures.DataFixtureSet;
 import test.ro.polak.spring.datafixtures.samples.GenericCountableDataFixture;
 import test.ro.polak.spring.datafixtures.samples.OrderableGenericCountableDataFixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ro.polak.spring.datafixtures.DataFixtureType.DEMO;
-import static ro.polak.spring.datafixtures.DataFixtureType.DICTIONARY;
-import static ro.polak.spring.datafixtures.DataFixtureType.PERFORMANCE;
-import static ro.polak.spring.datafixtures.DataFixtureType.TEST;
-import static ro.polak.spring.datafixtures.DataFixtureType.values;
+import static ro.polak.spring.datafixtures.DataFixtureSet.DEMO;
+import static ro.polak.spring.datafixtures.DataFixtureSet.DICTIONARY;
+import static ro.polak.spring.datafixtures.DataFixtureSet.PERFORMANCE;
+import static ro.polak.spring.datafixtures.DataFixtureSet.TEST;
+import static ro.polak.spring.datafixtures.DataFixtureSet.values;
 
 class DataFixtureLoaderServiceTest {
 
@@ -47,7 +47,7 @@ class DataFixtureLoaderServiceTest {
     DataFixtureLoaderService dataFixtureLoaderService =
         new DataFixtureLoaderService(fixturesShuffled);
 
-    Set<DataFixtureType> allTypes = new HashSet(Arrays.asList(values()));
+    Set<DataFixtureSet> allTypes = new HashSet(Arrays.asList(values()));
     dataFixtureLoaderService.applyByTypesMatching(allTypes);
 
     fixturesShuffled.stream()
@@ -71,7 +71,7 @@ class DataFixtureLoaderServiceTest {
     DataFixtureLoaderService dataFixtureLoaderService =
         new DataFixtureLoaderService(Arrays.asList(dictionaryDataFixture, testDataFixture));
 
-    Set<DataFixtureType> allTypes = new HashSet(Arrays.asList(values()));
+    Set<DataFixtureSet> allTypes = new HashSet(Arrays.asList(values()));
     dataFixtureLoaderService.applyByTypesMatching(allTypes);
 
     assertThat(dictionaryDataFixture.getCallCount()).isEqualTo(0);

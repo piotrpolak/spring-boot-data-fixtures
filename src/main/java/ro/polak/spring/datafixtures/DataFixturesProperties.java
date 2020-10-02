@@ -1,6 +1,6 @@
 package ro.polak.spring.datafixtures;
 
-import static ro.polak.spring.datafixtures.DataFixtureType.DICTIONARY;
+import static ro.polak.spring.datafixtures.DataFixtureSet.DICTIONARY;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -19,13 +19,13 @@ public class DataFixturesProperties {
 
   private final boolean enabled = true;
 
-  private final Set<DataFixtureType> types = new HashSet<>(Arrays.asList(DICTIONARY));
+  private final Set<DataFixtureSet> sets = new HashSet<>(Arrays.asList(DICTIONARY));
 
   public boolean isEnabled() {
     return enabled;
   }
 
-  public Set<DataFixtureType> getTypes() {
-    return types;
+  public Set<DataFixtureSet> getSets() {
+    return sets;
   }
 }

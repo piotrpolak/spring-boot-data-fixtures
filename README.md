@@ -22,12 +22,12 @@ public class InitialDataFixture implements DataFixture {
     // ...
 
     /**
-     * Defines the fixture type. Fixtures are loaded in the order defined by DataFixtureType enum
+     * Defines the fixture set. Fixtures are loaded in the order defined by DataFixtureSet enum
      * ordinals.
      */
     @Override
-    public DataFixtureType getType() {
-      return DataFixtureType.DICTIONARY;
+    public DataFixtureSet getSet() {
+      return DataFixtureSet.DICTIONARY;
     }
 
     /**
@@ -78,11 +78,11 @@ public class PrimitiveSQLInitialDataFixture implements DataFixture {
 }
 ```
 
-### Fixture types
+### Fixture data sets
 
-A fixture must belong to one of the following types:
+A fixture must belong to one of the following sets:
 
-| Data fixture type | Description                                                                                             |
+| Data fixture set | Description                                                                                             |
 |-------------------|---------------------------------------------------------------------------------------------------------|
 | DICTIONARY        | Initial data such as mandatory dictionaries, initial accounts etc.                                      |
 | TEST              | Data used in integration tests.                                                                         |
@@ -91,11 +91,11 @@ A fixture must belong to one of the following types:
 
 ### Fixture application order
 
-Application can define many fixtures of the same type - defining fixtures per domain is a common practice, and a great
+Application can define many fixtures of the same set - defining fixtures per domain is a common practice, and a great
 way to keep the code decoupled.
 
 The fixtures are loaded in the following order `DICTIONARY` -> `TEST` -> `DEMO` -> `PERFORMANCE`.
-In case when there are more fixtures of the same type, their order can be manually arranged using the
+In case when there are more fixtures of the same set, their order can be manually arranged using the
 [`@Order`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html)
 annotation.
 
@@ -108,8 +108,8 @@ Fixtures from the example below will be applied in the following order:
 public class InitialCountriesDataFixture implements DataFixture {
 
     @Override
-    public DataFixtureType getType() {
-      return DataFixtureType.DICTIONARY;
+    public DataFixtureSet getSet() {
+      return DataFixtureSet.DICTIONARY;
     }
     // ...
 }
@@ -119,19 +119,19 @@ public class InitialCountriesDataFixture implements DataFixture {
 public class InitialCountriesDataFixture implements DataFixture {
 
     @Override
-    public DataFixtureType getType() {
-      return DataFixtureType.DICTIONARY;
+    public DataFixtureSet getSet() {
+      return DataFixtureSet.DICTIONARY;
     }
     // ...
 }
 
 @Component
-@Order(Ordered.HIGHEST_PRECEDENCE) // Doesn't really matter if there is a single fixture of the demo type
+@Order(Ordered.HIGHEST_PRECEDENCE) // Doesn't really matter if there is a single fixture of the demo set
 public class DemoProductsDataFixture implements DataFixture {
 
     @Override
-    public DataFixtureType getType() {
-      return DataFixtureType.DEMO;
+    public DataFixtureSet getSet() {
+      return DataFixtureSet.DEMO;
     }
     // ...
 }
@@ -142,7 +142,7 @@ public class DemoProductsDataFixture implements DataFixture {
 | Property name                           | Description                                                  | Default      |
 |-----------------------------------------|--------------------------------------------------------------|--------------|
 | `ro.polak.spring.data-fixtures.enabled` | Turns on and off the data features mechanism                 | true         |
-| `ro.polak.spring.data-fixtures.types`   | Specifies the types fixture types to be loaded automatically | `DICTIONARY` |
+| `ro.polak.spring.data-fixtures.sets`   | Specifies the sets fixture sets to be loaded automatically | `DICTIONARY` |
 
 In a typical scenario
 - production environment applies `DICTIONARY` fixtures only
@@ -159,7 +159,7 @@ In a typical scenario
 <repositories>
     <repository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <url>https://oss.sonaset.org/content/repositories/snapshots</url>
     </repository>
 </repositories>
 ```
@@ -177,7 +177,7 @@ In a typical scenario
 ```groovy
 repositories {
     maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots"
+        url "https://oss.sonaset.org/content/repositories/snapshots"
     }
 }
 ```

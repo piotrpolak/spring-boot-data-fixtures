@@ -1,27 +1,27 @@
 package test.ro.polak.spring.datafixtures.samples;
 
 import ro.polak.spring.datafixtures.DataFixture;
-import ro.polak.spring.datafixtures.DataFixtureType;
+import ro.polak.spring.datafixtures.DataFixtureSet;
 
 public class GenericCountableDataFixture implements DataFixture, CallCountable {
 
   private int callCount = 0;
 
-  private final DataFixtureType type;
+  private final DataFixtureSet set;
   private final boolean shouldBeApplied;
 
-  public GenericCountableDataFixture(final DataFixtureType type) {
-    this(type, true);
+  public GenericCountableDataFixture(final DataFixtureSet set) {
+    this(set, true);
   }
 
-  public GenericCountableDataFixture(final DataFixtureType type, final boolean shouldBeApplied) {
-    this.type = type;
+  public GenericCountableDataFixture(final DataFixtureSet set, final boolean shouldBeApplied) {
+    this.set = set;
     this.shouldBeApplied = shouldBeApplied;
   }
 
   @Override
-  public DataFixtureType getType() {
-    return type;
+  public DataFixtureSet getSet() {
+    return set;
   }
 
   @Override

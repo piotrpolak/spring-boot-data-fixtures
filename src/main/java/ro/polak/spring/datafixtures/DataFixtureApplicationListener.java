@@ -24,11 +24,11 @@ class DataFixtureApplicationListener implements ApplicationListener<ContextRefre
   @Override
   public void onApplicationEvent(final ContextRefreshedEvent contextStartedEvent) {
 
-    if (dataFixturesProperties.getTypes().isEmpty()) {
-      LOG.info("Data Fixtures feature is enabled but there are no fixture types defined.");
+    if (dataFixturesProperties.getSets().isEmpty()) {
+      LOG.info("Data Fixtures feature is enabled but there are no fixture sets configured.");
       return;
     }
 
-    dataFixtureLoaderService.applyByTypesMatching(dataFixturesProperties.getTypes());
+    dataFixtureLoaderService.applyByTypesMatching(dataFixturesProperties.getSets());
   }
 }

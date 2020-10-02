@@ -1,7 +1,7 @@
 package test.ro.polak.spring.datafixtures.samples;
 
 import java.util.concurrent.atomic.AtomicInteger;
-import ro.polak.spring.datafixtures.DataFixtureType;
+import ro.polak.spring.datafixtures.DataFixtureSet;
 
 public class OrderableGenericCountableDataFixture extends GenericCountableDataFixture {
 
@@ -9,8 +9,8 @@ public class OrderableGenericCountableDataFixture extends GenericCountableDataFi
   private int order = -1;
 
   public OrderableGenericCountableDataFixture(
-      final DataFixtureType type, final AtomicInteger orderSharedReference) {
-    super(type);
+      final DataFixtureSet set, final AtomicInteger orderSharedReference) {
+    super(set);
     this.orderSharedReference = orderSharedReference;
   }
 

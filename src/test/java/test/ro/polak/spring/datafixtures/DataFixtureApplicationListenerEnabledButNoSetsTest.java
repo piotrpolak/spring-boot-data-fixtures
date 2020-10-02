@@ -8,8 +8,8 @@ import ro.polak.spring.datafixtures.DataFixturesProperties;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ActiveProfiles("enabledbutnotypes")
-class DataFixtureApplicationListenerEnabledButNoTypesTest extends BaseTest {
+@ActiveProfiles("enabledbutnosets")
+class DataFixtureApplicationListenerEnabledButNoSetsTest extends BaseTest {
 
   @Autowired DataFixturesAutoConfiguration dataFixturesAutoConfiguration;
 
@@ -20,6 +20,6 @@ class DataFixtureApplicationListenerEnabledButNoTypesTest extends BaseTest {
     assertThat(dataFixturesAutoConfiguration).as("AutoConfiguration working").isNotNull();
     assertThat(dataFixturesProperties).as("AutoConfiguration working - properties").isNotNull();
     assertThat(dataFixturesProperties.isEnabled()).isTrue();
-    assertThat(dataFixturesProperties.getTypes()).isEmpty();
+    assertThat(dataFixturesProperties.getSets()).isEmpty();
   }
 }

@@ -16,15 +16,15 @@ public class DataFixtureLoaderService {
     this.dataFixtures = dataFixtures;
   }
 
-  /** Applies all eligible fixtures for multiple types. */
-  public long applyByTypesMatching(Set<DataFixtureType> types) {
-    return types.stream().sorted().map(t -> applyBySingleType(t)).reduce(0L, Long::sum);
+  /** Applies all eligible fixtures for multiple sets. */
+  public long applyByTypesMatching(Set<DataFixtureSet> sets) {
+    return sets.stream().sorted().map(t -> applyBySingleType(t)).reduce(0L, Long::sum);
   }
 
-  /** Applies all eligible fixtures by a single type. */
-  public long applyBySingleType(final DataFixtureType type) {
+  /** Applies all eligible fixtures by a single set. */
+  public long applyBySingleType(final DataFixtureSet set) {
     return dataFixtures.stream()
-        .filter(f -> f.getType() == type && f.shouldBeApplied())
+        .filter(f -> f.getSet() == set && f.shouldBeApplied())
         .peek(
             fixture -> {
               StopWatch stopWatch = new StopWatch();
@@ -32,9 +32,9 @@ public class DataFixtureLoaderService {
               fixture.apply();
               stopWatch.stop();
               LOG.info(
-                  "Applied {} fixture of type {} in {} seconds",
+                  "Applied {} fixture of set {} in {} seconds",
                   fixture.getClass().getSimpleName(),
-                  fixture.getType(),
+                  fixture.getSet(),
                   String.format("%.3f", stopWatch.getTotalTimeSeconds()));
             })
         .count();

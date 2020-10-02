@@ -6,10 +6,10 @@ package ro.polak.spring.datafixtures;
 public interface DataFixture {
 
   /**
-   * Defines the fixture type. Fixtures are loaded in the order defined by DataFixtureType enum
+   * Defines the fixture set. Fixtures are loaded in the order defined by DataFixtureType enum
    * ordinals.
    */
-  DataFixtureType getType();
+  DataFixtureSet getSet();
 
   /**
    * Tells whether the fixture is eligible to be applied. In most cases a fixture is executed upon
