@@ -8,7 +8,7 @@ and it is automatically enabled once it is on the classpath.
 
 ## Usage
 
-Data fixtures are defined as beans implementing the `DataFixture` interface. Example:
+Data fixtures are defined as beans implementing the [`DataFixture`](../../tree/master/src/main/java/ro/polak/spring/datafixtures/DataFixture.java) interface. Example:
 
 ```java
 @Component
@@ -28,7 +28,7 @@ public class InitialDataFixture implements DataFixture {
     }
 
     /**
-     * Tells whether the fixture is eligible for application. In most cases a fixture is executed
+     * Tells whether the fixture is eligible to be applied. In most cases a fixture is executed
      * upon the fist application startup only.
      */
     @Override
@@ -37,7 +37,7 @@ public class InitialDataFixture implements DataFixture {
     }
 
     /**
-     * The actual application of the fixture. Assuming data fixtures are registered as beans,
+     * The actual application of the fixture. Assuming that data fixtures are registered as beans,
      * this can contain a call to other services and/or repositories.
      */
     @Override
@@ -64,7 +64,8 @@ Application can define many fixtures of the same type - defining fixtures per do
 way to keep the code decoupled.
 
 The fixtures are loaded in the following order `DICTIONARY` -> `TEST` -> `DEMO` -> `PERFORMANCE`.
-If there are more fixtures of the same type, their order can be manually arranged using `@Order` annotation.
+If there are more fixtures of the same type, their order can be manually arranged using the [`@Order`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/Order.html)
+annotation.
 
 Fixtures from the example below will be applied in the following order:
  `InitialCountriesDataFixture` -> `InitialCountriesDataFixture` -> `DemoProductsDataFixture`
@@ -149,3 +150,9 @@ implementation 'ro.polak:spring-boot-data-fixtures:0.0.1-SNAPSHOT'
 ## License
 
 The project is licensed under MIT license.
+
+## Deploying snapshots (signed)
+
+```bash
+mvn clean deploy -P deploy
+```
