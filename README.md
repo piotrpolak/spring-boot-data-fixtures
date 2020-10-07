@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/branch/master/graph/badge.svg?token=MC4ZZAQCTJ)](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/7611c8703c51493db1a68e18055c8b6f)](https://www.codacy.com/gh/piotrpolak/spring-boot-data-fixtures/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=piotrpolak/spring-boot-data-fixtures&amp;utm_campaign=Badge_Grade)
 
-Loads initial data upon application startup. The starter benefits from Spring Boot
+Loads initial data upon application startup (ContextRefresh event). The starter benefits from Spring Boot
 [Auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-auto-configuration) feature
 and it is automatically enabled once it added to classpath.
 
