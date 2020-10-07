@@ -11,9 +11,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ActiveProfiles("enabledbutnosets")
 class DataFixtureApplicationListenerEnabledButNoSetsTest extends BaseTest {
 
-  @Autowired DataFixturesAutoConfiguration dataFixturesAutoConfiguration;
+  @Autowired private DataFixturesAutoConfiguration dataFixturesAutoConfiguration;
 
-  @Autowired DataFixturesProperties dataFixturesProperties;
+  @Autowired private DataFixturesProperties dataFixturesProperties;
 
   @Test
   void should_not_enable_autoconfiguration() {

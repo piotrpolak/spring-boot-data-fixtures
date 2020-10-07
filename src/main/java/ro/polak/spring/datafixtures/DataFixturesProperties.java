@@ -14,8 +14,8 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class DataFixturesProperties {
 
-  static final String PREFIX = "ro.polak.spring.data-fixtures";
-  static final String ENABLED = "ro.polak.spring.data-fixtures.enabled";
+  public static final String PREFIX = "ro.polak.spring.data-fixtures";
+  public static final String ENABLED = "ro.polak.spring.data-fixtures.enabled";
 
   private final boolean enabled = true;
 

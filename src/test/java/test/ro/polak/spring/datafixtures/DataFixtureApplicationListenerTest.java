@@ -19,13 +19,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Import(DataFixtureApplicationListenerTest.AdditionalFixturesConfiguration.class)
 class DataFixtureApplicationListenerTest extends BaseTest {
 
-  @Autowired SampleDictionaryDataFixture sampleDictionaryDataFixture;
-  @Autowired SamplePerformanceDataFixture samplePerformanceDataFixture;
-  @Autowired SampleDemoDisabledDataFixture sampleDemoDisabledDataFixture;
-  @Autowired DataFixturesProperties dataFixturesProperties;
+  @Autowired private SampleDictionaryDataFixture sampleDictionaryDataFixture;
+  @Autowired private SamplePerformanceDataFixture samplePerformanceDataFixture;
+  @Autowired private SampleDemoDisabledDataFixture sampleDemoDisabledDataFixture;
+  @Autowired private DataFixturesProperties dataFixturesProperties;
 
   @Autowired(required = false)
-  DataFixturesAutoConfiguration dataFixturesAutoConfiguration;
+  private DataFixturesAutoConfiguration dataFixturesAutoConfiguration;
 
   @Test
   void should_enable_autoconfiguration() {
