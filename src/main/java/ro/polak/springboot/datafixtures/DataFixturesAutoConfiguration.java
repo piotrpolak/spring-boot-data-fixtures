@@ -1,6 +1,6 @@
-package ro.polak.spring.datafixtures;
+package ro.polak.springboot.datafixtures;
 
-import static ro.polak.spring.datafixtures.DataFixturesProperties.ENABLED;
+import static ro.polak.springboot.datafixtures.DataFixturesProperties.ENABLED;
 
 import java.util.List;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

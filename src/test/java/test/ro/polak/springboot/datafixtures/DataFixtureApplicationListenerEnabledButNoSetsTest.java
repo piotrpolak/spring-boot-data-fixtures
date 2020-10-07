@@ -1,10 +1,10 @@
-package test.ro.polak.spring.datafixtures;
+package test.ro.polak.springboot.datafixtures;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
-import ro.polak.spring.datafixtures.DataFixturesAutoConfiguration;
-import ro.polak.spring.datafixtures.DataFixturesProperties;
+import ro.polak.springboot.datafixtures.DataFixturesAutoConfiguration;
+import ro.polak.springboot.datafixtures.DataFixturesProperties;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

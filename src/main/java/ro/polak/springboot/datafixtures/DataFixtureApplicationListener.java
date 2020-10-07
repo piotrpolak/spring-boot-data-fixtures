@@ -1,4 +1,4 @@
-package ro.polak.spring.datafixtures;
+package ro.polak.springboot.datafixtures;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

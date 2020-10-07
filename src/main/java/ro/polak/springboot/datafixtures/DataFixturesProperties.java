@@ -1,6 +1,4 @@
-package ro.polak.spring.datafixtures;
-
-import static ro.polak.spring.datafixtures.DataFixtureSet.DICTIONARY;
+package ro.polak.springboot.datafixtures;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -14,12 +12,12 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class DataFixturesProperties {
 
-  public static final String PREFIX = "ro.polak.spring.data-fixtures";
-  public static final String ENABLED = "ro.polak.spring.data-fixtures.enabled";
+  public static final String PREFIX = "data-fixtures";
+  public static final String ENABLED = PREFIX + ".enabled";
 
   private final boolean enabled = true;
 
-  private final Set<DataFixtureSet> sets = new HashSet<>(Arrays.asList(DICTIONARY));
+  private final Set<DataFixtureSet> sets = new HashSet<>(Arrays.asList(DataFixtureSet.DICTIONARY));
 
   public boolean isEnabled() {
     return enabled;

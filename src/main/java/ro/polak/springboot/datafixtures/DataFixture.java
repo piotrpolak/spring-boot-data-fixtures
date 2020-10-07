@@ -1,4 +1,4 @@
-package ro.polak.spring.datafixtures;
+package ro.polak.springboot.datafixtures;
 
 /**
  * Core Data Fixture interface. User defined Data Fixtures must be beans that extend this interface.

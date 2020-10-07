@@ -1,7 +1,7 @@
-package test.ro.polak.spring.datafixtures.samples;
+package test.ro.polak.springboot.datafixtures.samples;
 
 import java.util.concurrent.atomic.AtomicInteger;
-import ro.polak.spring.datafixtures.DataFixtureSet;
+import ro.polak.springboot.datafixtures.DataFixtureSet;
 
 public class OrderableGenericCountableDataFixture extends GenericCountableDataFixture {
 

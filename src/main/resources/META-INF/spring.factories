@@ -1,1 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=ro.polak.spring.datafixtures.DataFixturesAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  ro.polak.springboot.datafixtures.DataFixturesAutoConfiguration

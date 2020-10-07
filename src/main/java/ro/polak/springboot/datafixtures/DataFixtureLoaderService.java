@@ -1,4 +1,4 @@
-package ro.polak.spring.datafixtures;
+package ro.polak.springboot.datafixtures;
 
 import java.util.List;
 import java.util.Set;

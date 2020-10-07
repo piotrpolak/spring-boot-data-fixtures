@@ -140,10 +140,10 @@ public class DemoProductsDataFixture implements DataFixture {
 
 ## Configuration options
 
-| Property name                           | Description                                                         | Default      |
-|-----------------------------------------|---------------------------------------------------------------------|--------------|
-| `ro.polak.spring.data-fixtures.enabled` | Turns on and off the data features mechanism                        | true         |
-| `ro.polak.spring.data-fixtures.sets`    | Specifies the data fixture sets to be loaded upon application start | `DICTIONARY` |
+| Property name           | Description                                                         | Default      |
+|-------------------------|---------------------------------------------------------------------|--------------|
+| `data-fixtures.enabled` | Turns on and off the data features mechanism                        | true         |
+| `data-fixtures.sets`    | Specifies the data fixture sets to be loaded upon application start | `DICTIONARY` |
 
 In a typical scenario
 

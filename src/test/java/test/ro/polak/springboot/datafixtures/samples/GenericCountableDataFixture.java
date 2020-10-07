@@ -1,7 +1,7 @@
-package test.ro.polak.spring.datafixtures.samples;
+package test.ro.polak.springboot.datafixtures.samples;
 
-import ro.polak.spring.datafixtures.DataFixture;
-import ro.polak.spring.datafixtures.DataFixtureSet;
+import ro.polak.springboot.datafixtures.DataFixture;
+import ro.polak.springboot.datafixtures.DataFixtureSet;
 
 public class GenericCountableDataFixture implements DataFixture, CallCountable {
 

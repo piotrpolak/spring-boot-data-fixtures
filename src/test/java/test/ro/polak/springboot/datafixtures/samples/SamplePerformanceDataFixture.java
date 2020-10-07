@@ -1,6 +1,6 @@
-package test.ro.polak.spring.datafixtures.samples;
+package test.ro.polak.springboot.datafixtures.samples;
 
-import static ro.polak.spring.datafixtures.DataFixtureSet.PERFORMANCE;
+import static ro.polak.springboot.datafixtures.DataFixtureSet.PERFORMANCE;
 
 public class SamplePerformanceDataFixture extends GenericCountableDataFixture {
 

@@ -1,4 +1,4 @@
-package test.ro.polak.spring.datafixtures;
+package test.ro.polak.springboot.datafixtures;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -6,18 +6,18 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
-import ro.polak.spring.datafixtures.DataFixture;
-import ro.polak.spring.datafixtures.DataFixtureLoaderService;
-import ro.polak.spring.datafixtures.DataFixtureSet;
-import test.ro.polak.spring.datafixtures.samples.GenericCountableDataFixture;
-import test.ro.polak.spring.datafixtures.samples.OrderableGenericCountableDataFixture;
+import ro.polak.springboot.datafixtures.DataFixture;
+import ro.polak.springboot.datafixtures.DataFixtureLoaderService;
+import ro.polak.springboot.datafixtures.DataFixtureSet;
+import test.ro.polak.springboot.datafixtures.samples.GenericCountableDataFixture;
+import test.ro.polak.springboot.datafixtures.samples.OrderableGenericCountableDataFixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ro.polak.spring.datafixtures.DataFixtureSet.DEMO;
-import static ro.polak.spring.datafixtures.DataFixtureSet.DICTIONARY;
-import static ro.polak.spring.datafixtures.DataFixtureSet.PERFORMANCE;
-import static ro.polak.spring.datafixtures.DataFixtureSet.TEST;
-import static ro.polak.spring.datafixtures.DataFixtureSet.values;
+import static ro.polak.springboot.datafixtures.DataFixtureSet.DEMO;
+import static ro.polak.springboot.datafixtures.DataFixtureSet.DICTIONARY;
+import static ro.polak.springboot.datafixtures.DataFixtureSet.PERFORMANCE;
+import static ro.polak.springboot.datafixtures.DataFixtureSet.TEST;
+import static ro.polak.springboot.datafixtures.DataFixtureSet.values;
 
 class DataFixtureLoaderServiceTest {
 

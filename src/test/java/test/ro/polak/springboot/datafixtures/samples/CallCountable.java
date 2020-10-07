@@ -1,4 +1,4 @@
-package test.ro.polak.spring.datafixtures.samples;
+package test.ro.polak.springboot.datafixtures.samples;
 
 public interface CallCountable {
 
