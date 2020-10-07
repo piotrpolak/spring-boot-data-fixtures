@@ -1,7 +1,8 @@
 package ro.polak.springboot.datafixtures;
 
 /**
- * The main Data Fixture interface. User defined Data Fixtures must be beans that extend this interface.
+ * The main Data Fixture interface. User defined Data Fixtures must be beans that extend this
+ * interface.
  */
 public interface DataFixture {
 
