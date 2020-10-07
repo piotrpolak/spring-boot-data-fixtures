@@ -199,3 +199,9 @@ The project is licensed under MIT license.
 ```bash
 mvn clean deploy -P deploy
 ```
+
+## Deploying production (signed)
+
+```bash
+mvn clean release:clean release:prepare release:perform -P deploy
+```
