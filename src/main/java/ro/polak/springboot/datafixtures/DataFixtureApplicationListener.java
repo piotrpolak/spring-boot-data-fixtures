@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 
+/** Loads fixtures upon Spring Boot application start. */
 class DataFixtureApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
 
   private static Logger LOG = LoggerFactory.getLogger(DataFixtureApplicationListener.class);
