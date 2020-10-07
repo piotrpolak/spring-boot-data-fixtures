@@ -163,7 +163,7 @@ In a typical scenario
 <repositories>
     <repository>
       <id>ossrh</id>
-      <url>https://oss.sonaset.org/content/repositories/snapshots</url>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
     </repository>
 </repositories>
 ```
