@@ -24,7 +24,7 @@ public class DataFixtureLoaderService {
   /** Applies all eligible fixtures by a single set. */
   public long applyBySingleType(final DataFixtureSet set) {
     return dataFixtures.stream()
-        .filter(f -> f.getSet() == set && f.shouldBeApplied())
+        .filter(f -> f.getSet() == set && f.canBeLoaded())
         .peek(
             fixture -> {
               StopWatch stopWatch = new StopWatch();

@@ -15,7 +15,7 @@ public interface DataFixture {
    * Tells whether the fixture is eligible to be applied. In most cases a fixture is executed upon
    * the fist application startup only.
    */
-  boolean shouldBeApplied();
+  boolean canBeLoaded();
 
   /**
    * The actual application of the fixture. Assuming that data fixtures are registered as beans,

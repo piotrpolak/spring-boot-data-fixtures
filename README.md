@@ -36,8 +36,8 @@ public class InitialDataFixture implements DataFixture {
      * upon the fist application startup only.
      */
     @Override
-    public boolean shouldBeApplied() {
-      return languageRepository.isEmpty();
+    public boolean canBeLoaded() {
+      return languageRepository.size() == 0;
     }
 
     /**

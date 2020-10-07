@@ -8,15 +8,15 @@ public class GenericCountableDataFixture implements DataFixture, CallCountable {
   private int callCount = 0;
 
   private final DataFixtureSet set;
-  private final boolean shouldBeApplied;
+  private final boolean canBeLoaded;
 
   public GenericCountableDataFixture(final DataFixtureSet set) {
     this(set, true);
   }
 
-  public GenericCountableDataFixture(final DataFixtureSet set, final boolean shouldBeApplied) {
+  public GenericCountableDataFixture(final DataFixtureSet set, final boolean canBeLoaded) {
     this.set = set;
-    this.shouldBeApplied = shouldBeApplied;
+    this.canBeLoaded = canBeLoaded;
   }
 
   @Override
@@ -25,8 +25,8 @@ public class GenericCountableDataFixture implements DataFixture, CallCountable {
   }
 
   @Override
-  public boolean shouldBeApplied() {
-    return shouldBeApplied;
+  public boolean canBeLoaded() {
+    return canBeLoaded;
   }
 
   @Override
