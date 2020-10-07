@@ -1,6 +1,7 @@
 # Spring Boot Data Fixtures starter
 [![Build Status](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures.svg?branch=master)](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures)
 [![codecov](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/branch/master/graph/badge.svg?token=MC4ZZAQCTJ)](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7611c8703c51493db1a68e18055c8b6f)](https://www.codacy.com/gh/piotrpolak/spring-boot-data-fixtures/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=piotrpolak/spring-boot-data-fixtures&amp;utm_campaign=Badge_Grade)
 
 Loads initial data upon application startup. The starter benefits from Spring Boot
 [Auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-auto-configuration) feature
@@ -82,7 +83,7 @@ public class PrimitiveSQLInitialDataFixture implements DataFixture {
 
 A fixture must belong to one of the following sets:
 
-| Data fixture set | Description                                                                                             |
+| Data fixture set  | Description                                                                                             |
 |-------------------|---------------------------------------------------------------------------------------------------------|
 | DICTIONARY        | Initial data such as mandatory dictionaries, initial accounts etc.                                      |
 | TEST              | Data used in integration tests.                                                                         |
@@ -145,6 +146,7 @@ public class DemoProductsDataFixture implements DataFixture {
 | `ro.polak.spring.data-fixtures.sets`    | Specifies the data fixture sets to be loaded upon application start | `DICTIONARY` |
 
 In a typical scenario
+
 - production environment applies `DICTIONARY` fixtures only
 - integration tests environment applies `DICTIONARY` and `TEST` fixtures or just `DICTIONARY`
   (under the assumption that each test populates and cleans up the database)
