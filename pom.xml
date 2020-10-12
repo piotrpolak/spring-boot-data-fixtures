@@ -11,7 +11,7 @@
     <artifactId>spring-boot-data-fixtures</artifactId>
     <version>0.0.2-SNAPSHOT</version>
     <name>spring-boot-data-fixtures</name>
-    <description>Spring Boot Data Fixtures</description>
+    <description>Spring Boot Data Fixtures - loads initial data upon application startup</description>
 
     <properties>
         <java.version>1.8</java.version>
