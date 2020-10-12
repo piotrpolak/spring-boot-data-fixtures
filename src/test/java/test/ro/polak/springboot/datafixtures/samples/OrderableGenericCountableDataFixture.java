@@ -15,8 +15,8 @@ public class OrderableGenericCountableDataFixture extends GenericCountableDataFi
   }
 
   @Override
-  public void apply() {
-    super.apply();
+  public void load() {
+    super.load();
     order = orderSharedReference.incrementAndGet();
   }
 

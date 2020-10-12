@@ -40,7 +40,7 @@ public class DataFixtureLoaderService {
             fixture -> {
               StopWatch stopWatch = new StopWatch();
               stopWatch.start();
-              fixture.apply();
+              fixture.load();
               stopWatch.stop();
               LOG.info(
                   "Applied {} fixture of set {} in {} seconds",

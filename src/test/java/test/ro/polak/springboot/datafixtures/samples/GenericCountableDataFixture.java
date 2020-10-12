@@ -30,7 +30,7 @@ public class GenericCountableDataFixture implements DataFixture, CallCountable {
   }
 
   @Override
-  public void apply() {
+  public void load() {
     callCount++;
   }
 

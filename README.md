@@ -46,7 +46,7 @@ public class InitialDataFixture implements DataFixture {
      * this can contain a call to other services and/or repositories.
      */
     @Override
-    public void apply() {
+    public void load() {
       languageRepository.saveAll(Arrays.asList(new Language("en-US"), new Language("pl-PL")));
     }
 }
@@ -68,7 +68,7 @@ public class PrimitiveSQLInitialDataFixture implements DataFixture {
      * this can contain a call to other services and/or repositories.
      */
     @Override
-    public void apply() {
+    public void load() {
       try {
           ClassPathResource resource = new ClassPathResource("countries.sql").getInputStream();
           String rawSql = StreamUtils.copyToString(resource, Charset.defaultCharset());

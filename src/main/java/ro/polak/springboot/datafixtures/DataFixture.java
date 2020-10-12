@@ -26,5 +26,5 @@ public interface DataFixture {
    * The actual application of the fixture. Assuming that data fixtures are registered as beans,
    * this can contain a call to other services and/or repositories.
    */
-  void apply();
+  void load();
 }
