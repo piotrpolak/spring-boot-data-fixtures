@@ -4,26 +4,32 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
-import org.springframework.validation.annotation.Validated;
 
 @ConfigurationProperties(prefix = DataFixturesProperties.PREFIX)
-@ConstructorBinding
-@Validated
 public class DataFixturesProperties {
 
   public static final String PREFIX = "data-fixtures";
   public static final String ENABLED = PREFIX + ".enabled";
 
-  private final boolean enabled = true;
+  /** Enables or disables data fixtures loading upon application startup. */
+  private boolean enabled = true;
 
-  private final Set<DataFixtureSet> sets = new HashSet<>(Arrays.asList(DataFixtureSet.DICTIONARY));
+  /** The collection of sets to be loaded upon application startup. */
+  private Set<DataFixtureSet> sets = new HashSet<>(Arrays.asList(DataFixtureSet.DICTIONARY));
 
   public boolean isEnabled() {
     return enabled;
   }
 
+  public void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
+
   public Set<DataFixtureSet> getSets() {
     return sets;
+  }
+
+  public void setSets(Set<DataFixtureSet> sets) {
+    this.sets = sets;
   }
 }
