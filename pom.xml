@@ -9,7 +9,7 @@
     </parent>
     <groupId>ro.polak</groupId>
     <artifactId>spring-boot-data-fixtures</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <name>spring-boot-data-fixtures</name>
     <description>Spring Boot Data Fixtures - loads initial data upon application startup</description>
 
