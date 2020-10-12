@@ -91,7 +91,7 @@ A fixture must belong to one of the following sets:
 | DEMO              | Data used for demonstration and manual testing purposes. Should describe representative demo scenarios. |
 | PERFORMANCE       | Large performance data sets. Usually generated using loops.                                             |
 
-### Fixture application order
+### Fixture load order
 
 Application can define many fixtures of the same set - defining fixtures per domain is a common practice, and a great
 way to keep the code decoupled.
@@ -158,7 +158,7 @@ In a typical scenario
 
 ## Installation
 
-The project is published in [Maven Central](https://search.maven.org/artifact/ro.polak/spring-boot-data-fixtures).
+The artifact is published in [Maven Central](https://search.maven.org/artifact/ro.polak/spring-boot-data-fixtures).
 
 ### Maven
 
