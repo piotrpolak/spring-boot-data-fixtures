@@ -22,7 +22,6 @@ class DataFixtureApplicationListener implements ApplicationListener<ContextRefre
 
   @Override
   public void onApplicationEvent(final ContextRefreshedEvent contextStartedEvent) {
-
     if (dataFixturesProperties.getSets().isEmpty()) {
       LOG.info("Data Fixtures feature is enabled but there are no fixture sets configured.");
       return;

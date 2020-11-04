@@ -9,16 +9,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = ENABLED, havingValue = "true", matchIfMissing = true)
 @EnableConfigurationProperties(DataFixturesProperties.class)
 public class DataFixturesAutoConfiguration {
 
   @Bean
+  @ConditionalOnProperty(name = ENABLED, havingValue = "true", matchIfMissing = true)
   DataFixtureLoaderService dataFixtureLoaderService(final List<DataFixture> dataFixtures) {
     return new DataFixtureLoaderService(dataFixtures);
   }
 
   @Bean
+  @ConditionalOnProperty(name = ENABLED, havingValue = "true", matchIfMissing = true)
   DataFixtureApplicationListener dataFixtureApplicationListener(
       final DataFixtureLoaderService dataFixtureLoaderService,
       final DataFixturesProperties dataFixturesProperties) {
