@@ -6,12 +6,12 @@
 
 Loads initial data upon application startup (upon ContextRefresh event). The starter benefits from Spring Boot
 [Auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-auto-configuration) feature
-and it is automatically enabled once it added to classpath.
+and it is automatically enabled once it is added to the classpath.
 
 ## Usage
 
 Data fixtures are defined as beans implementing the [`DataFixture`](../../tree/master/src/main/java/ro/polak/springboot/datafixtures/DataFixture.java)
-interface. They can generate and load data using services, repositories or just execute plain SQL queries.
+interface. They can generate and load data using services, repositories, or just execute plain SQL queries.
 
 Example of an initial data fixture loading data using Spring Data repository:
 
@@ -33,8 +33,8 @@ public class InitialDataFixture implements DataFixture {
     }
 
     /**
-     * Tells whether the fixture is eligible to be applied. In most cases a fixture is executed
-     * upon the fist application startup only.
+     * Tells whether the fixture is eligible to be applied. In most cases, a fixture is executed
+     * upon the first application startup only.
      */
     @Override
     public boolean canBeLoaded() {
@@ -86,14 +86,14 @@ A fixture must belong to one of the following sets:
 
 | Data fixture set  | Description                                                                                             |
 |-------------------|---------------------------------------------------------------------------------------------------------|
-| DICTIONARY        | Initial data such as mandatory dictionaries, initial accounts etc.                                      |
+| DICTIONARY        | Initial data such as mandatory dictionaries, initial accounts, etc.                                     |
 | TEST              | Data used in integration tests.                                                                         |
 | DEMO              | Data used for demonstration and manual testing purposes. Should describe representative demo scenarios. |
 | PERFORMANCE       | Large performance data sets. Usually generated using loops.                                             |
 
 ### Fixture load order
 
-Application can define many fixtures of the same set - defining fixtures per domain is a common practice, and a great
+An application can define many fixtures of the same set - defining fixtures per domain is a common practice and a great
 way to keep the code decoupled.
 
 The fixtures are loaded in the following order: `DICTIONARY` -> `TEST` -> `DEMO` -> `PERFORMANCE`.
