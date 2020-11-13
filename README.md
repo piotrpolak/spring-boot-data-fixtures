@@ -63,10 +63,6 @@ public class PrimitiveSQLInitialDataFixture implements DataFixture {
 
     // ...
 
-    /**
-     * The actual application of the fixture. Assuming that data fixtures are registered as beans,
-     * this can contain a call to other services and/or repositories.
-     */
     @Override
     public void load() {
       try {
@@ -102,12 +98,12 @@ In case when there are more fixtures of the same set, their order can be manuall
 annotation.
 
 Fixtures from the example below will be applied in the following order:
- `InitialCountriesDataFixture` -> `InitialCountriesDataFixture` -> `DemoProductsDataFixture`
+ `InitialLanguagesDataFixture` -> `InitialCountriesDataFixture` -> `DemoProductsDataFixture`
 
 ```java
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class InitialCountriesDataFixture implements DataFixture {
+public class InitialLanguagesDataFixture implements DataFixture {
 
     @Override
     public DataFixtureSet getSet() {
