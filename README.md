@@ -24,25 +24,29 @@ public class InitialDataFixture implements DataFixture {
     // ...
 
     /**
-     * Defines the fixture set. Fixtures are loaded in the order defined by DataFixtureSet enum
+     * Defines the fixture set. Fixtures are loaded in the order defined by DataFixtureType enum
      * ordinals.
+     *
+     * @return data fixture set
      */
     @Override
     public DataFixtureSet getSet() {
       return DataFixtureSet.DICTIONARY;
     }
 
-    /**
-     * Tells whether the fixture is eligible to be applied. In most cases, a fixture is executed
-     * upon the first application startup only.
-     */
+   /**
+    * Tells whether the fixture is eligible to be applied. In most cases a fixture is executed upon
+    * the fist application startup only.
+    *
+    * @return whether the fixture should be applied or not
+    */
     @Override
     public boolean canBeLoaded() {
       return languageRepository.size() == 0;
     }
 
     /**
-     * The actual application of the fixture. Assuming that data fixtures are registered as beans,
+     * The actual application of the fixture. Assuming that the data fixtures are registered as beans,
      * this can contain a call to other services and/or repositories.
      */
     @Override

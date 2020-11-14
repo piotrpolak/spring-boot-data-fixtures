@@ -1,8 +1,8 @@
 package ro.polak.springboot.datafixtures;
 
 /**
- * The main Data Fixture interface. User defined Data Fixtures must be beans that extend this
- * interface.
+ * The main Data Fixture interface. User defined Data Fixtures must be beans implementing
+ * DataFixture interface.
  */
 public interface DataFixture {
 
@@ -23,7 +23,7 @@ public interface DataFixture {
   boolean canBeLoaded();
 
   /**
-   * The actual application of the fixture. Assuming that data fixtures are registered as beans,
+   * The actual application of the fixture. Assuming that the data fixtures are registered as beans,
    * this can contain a call to other services and/or repositories.
    */
   void load();
