@@ -128,7 +128,8 @@ public class InitialCountriesDataFixture implements DataFixture {
 }
 
 @Component
-@Order(Ordered.HIGHEST_PRECEDENCE) // Doesn't really matter if there is a single fixture of the demo set
+// The Order annotation doesn't really matter here since there is a single fixture of the demo set
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class DemoProductsDataFixture implements DataFixture {
 
     @Override
