@@ -8,6 +8,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/** Defines main beans. */
 @Configuration
 @EnableConfigurationProperties(DataFixturesProperties.class)
 public class DataFixturesAutoConfiguration {
