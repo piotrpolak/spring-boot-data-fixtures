@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/** Defines configuration properties. */
 @ConfigurationProperties(prefix = DataFixturesProperties.PREFIX)
 public class DataFixturesProperties {
 
