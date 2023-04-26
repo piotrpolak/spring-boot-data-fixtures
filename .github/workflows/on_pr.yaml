@@ -2,9 +2,6 @@ name: On push to master or PR
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master

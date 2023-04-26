@@ -1,5 +1,4 @@
 # Spring Boot Data Fixtures starter
-[![Build Status](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures.svg?branch=master)](https://travis-ci.com/piotrpolak/spring-boot-data-fixtures)
 [![codecov](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/branch/master/graph/badge.svg?token=MC4ZZAQCTJ)](https://codecov.io/gh/piotrpolak/spring-boot-data-fixtures/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/7611c8703c51493db1a68e18055c8b6f)](https://www.codacy.com/gh/piotrpolak/spring-boot-data-fixtures/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=piotrpolak/spring-boot-data-fixtures&amp;utm_campaign=Badge_Grade)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/ro.polak/spring-boot-data-fixtures/badge.svg)](https://maven-badges.herokuapp.com/maven-central/ro.polak/spring-boot-data-fixtures)
