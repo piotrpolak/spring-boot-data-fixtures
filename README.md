@@ -166,16 +166,21 @@ The artifact is published in [Maven Central](https://search.maven.org/artifact/r
 <dependency>
     <groupId>ro.polak</groupId>
     <artifactId>spring-boot-data-fixtures</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'ro.polak:spring-boot-data-fixtures:0.1.0'
+implementation 'ro.polak:spring-boot-data-fixtures:0.2.0'
 ```
 
+### Older versions
+
+For Spring Boot pre `2.7`, use `0.1.0` version.
+
+Version `0.2.0` is compatible with Spring `2.7+` and `3+`.
 
 ### Snapshot repositories
 
