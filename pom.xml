@@ -9,7 +9,7 @@
     </parent>
     <groupId>ro.polak</groupId>
     <artifactId>spring-boot-data-fixtures</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1-SNAPSHOT</version>
     <name>spring-boot-data-fixtures</name>
     <description>Spring Boot Data Fixtures - loads initial data upon application startup</description>
 
@@ -34,7 +34,7 @@
         <connection>scm:git:git@github.com:piotrpolak/spring-boot-data-fixtures.git</connection>
         <developerConnection>scm:git:git@github.com:piotrpolak/spring-boot-data-fixtures.git</developerConnection>
         <url>https://github.com/piotrpolak/spring-boot-data-fixtures</url>
-      <tag>spring-boot-data-fixtures-0.2.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <dependencies>
